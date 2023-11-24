@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .avatar-container {
+            width: 500px;
+            height: 500px;
+            position: relative;
+        }
+
+        .avatar-layer {
+            position: absolute;
+            width: 500px; /* Set the width of the image to match the container */
+            height: 500px; /* Set the height of the image to match the container */
+        }
+    </style>
+</head>
+<body>
+    <h1>Create Your Avatar</h1>
+    <div class="avatar-container">
+        <!-- Default background layer (set your background image here) -->
+        <img class="avatar-layer" src="img/background.png" alt="Default Background">
+        <!-- Avatar layers will be added here -->
+    </div>
+    <div class="options">
+        <h2>Choose Your Shirt:</h2>
+        <button class="option" data-image-src="img/skull.png" data-layer="Shirt">Skull</button>
+        <button class="option" data-image-src="img/Teeth.png" data-layer="Shirt">Teeth</button>
+        <button class="option" data-image-src="img/Eyes.png" data-layer="Shirt">Eyes</button>
+
+        <h2>Choose Your Accessories:</h2>
+        <button class="option" data-image-src="img/Beard1.png" data-layer="Accessories">Beard</button>
+        <button class="option" data-image-src="img/Hat1.png" data-layer="Accessories">Hat 1</button>
+        <button class="option" data-image-src="img/Hat2.png" data-layer="Accessories">Hat 2</button>
+    </div>
+
+    <script>
+        const avatarContainer = document.querySelector(".avatar-container");
+        const options = document.querySelectorAll(".option");
+        const avatarLayers = {};
+
+        options.forEach(option => {
+            option.addEventListener("click", () => {
+                const layerName = option.getAttribute("data-layer");
+
+                // Check if the layer is already activated
+                if (avatarLayers[layerName]) {
+                    // If it's activated, remove it
+                    avatarContainer.removeChild(avatarLayers[layerName]);
+                    avatarLayers[layerName] = null;
+                }
+
+                // Create an image element for the selected option and set its properties
+                const selectedOption = document.createElement("img");
+                selectedOption.src = option.getAttribute("data-image-src");
+                selectedOption.classList.add("avatar-layer"); // Apply a class for styling
+
+                // Set the z-index to maintain the correct order
+                let layerIndex = Object.keys(avatarLayers).length; // Get the next available layer index
+                if (layerName === "Accessories") {
+                    // Ensure Accessories are always after Shirt
+                    layerIndex += 1;
+                }
+                selectedOption.style.zIndex = layerIndex;
+
+                // Add the selected option to the avatar container
+                avatarContainer.appendChild(selectedOption);
+
+                // Store the layer in the object with the layer name as the key
+                avatarLayers[layerName] = selectedOption;
+            });
+        });
+    </script>
+</body>
+</html>
