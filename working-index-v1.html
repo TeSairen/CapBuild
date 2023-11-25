@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .avatar-container {
+            width: 500px;
+            height: 500px;
+            position: relative;
+        }
+
+        .avatar-layer {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Create Your Avatar</h1>
+    <div class="avatar-container">
+        <!-- Default background layer -->
+        <img class="avatar-layer" src="img/background.png" alt="Default Background">
+    </div>
+    <div class="options">
+        <h2>Make your skull:</h2>
+        <button class="option" data-image-src="img/skull.png" data-layer="2">Skull</button>
+        <button class="option" data-image-src="img/Teeth.png" data-layer="3">Teeth</button>
+        <button class="option" data-image-src="img/Eyes.png" data-layer="4">Eyes</button>
+
+        <h2>Choose Your Accessories:</h2>
+        <!-- 'None' options to remove accessories -->
+        <button class="none" data-layer="1">No Cross</button>
+        <button class="option" data-image-src="img/Cross/Cross1.png" data-layer="1">Cross 1</button>
+        <button class="option" data-image-src="img/Cross/Cross2.png" data-layer="1">Cross 2</button>
+        <button class="option" data-image-src="img/Cross/Cross3.png" data-layer="1">Cross 3</button>
+        <button class="none" data-layer="5">No Beard</button>
+        <button class="option" data-image-src="img/Beard/Beard1.png" data-layer="5">Beard 1</button>
+        <button class="option" data-image-src="img/Beard/Beard2.png" data-layer="5">Beard 2</button>
+        <button class="option" data-image-src="img/Beard/Beard3.png" data-layer="5">Beard 3</button>
+        <button class="none" data-layer="6">No Hat</button>
+        <button class="option" data-image-src="img/Hat/Hat1.png" data-layer="6">Hat 1</button>
+        <button class="option" data-image-src="img/Hat/Hat2.png" data-layer="6">Hat 2</button>
+        <button class="option" data-image-src="img/Hat/Hat3.png" data-layer="6">Hat 3</button>
+    </div>
+
+    <script>
+        const avatarContainer = document.querySelector(".avatar-container");
+        const options = document.querySelectorAll(".option");
+        const none = document.querySelectorAll(".none");
+        const avatarLayers = {};
+
+        options.forEach(option => {
+            option.addEventListener("click", () => {
+                const layerIndex = option.getAttribute("data-layer");
+                
+                // Remove currently active element in the same layer
+                if (avatarLayers[layerIndex]) {
+                    avatarContainer.removeChild(avatarLayers[layerIndex]);
+                    delete avatarLayers[layerIndex];
+                }
+                // Create and add the new element
+                const selectedOption = document.createElement("img");
+                selectedOption.src = option.getAttribute("data-image-src");
+                selectedOption.classList.add("avatar-layer");
+                selectedOption.style.zIndex = layerIndex;
+                avatarContainer.appendChild(selectedOption);
+
+                // Update the layer and element records
+                avatarLayers[layerIndex] = selectedOption;
+            });
+        });
+
+        none.forEach(noneButton => {
+            noneButton.addEventListener("click", () => {
+                const layerIndex = noneButton.getAttribute("data-layer");
+                // Remove currently active element in the same layer
+                if (avatarLayers[layerIndex]) {
+                    avatarContainer.removeChild(avatarLayers[layerIndex]);
+                    delete avatarLayers[layerIndex];
+                }
+            });
+        });
+    </script>
+</body>
+</html>
