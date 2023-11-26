@@ -16,45 +16,8 @@
             height: 500px;
         }
 
-        #title-build{
-            margin: 50px auto;
-            text-align: center;
-        }
-
-        /* New styles for layout */
-        .main-content {
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            margin-top: 20px;
-        }
-
-        .options {
-            display: flex;
-            justify-content: space-around; /* This will space out your main divs */
-            align-items: start; /* Aligns items to the start of the flex container */
-            margin-top: 20px;
-        }
-
-        .accessories,
-        .skull {
-            flex: 1;
-            margin: auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .avatar-container {
-            flex: 0 0 500px;
-            height: 500px;
-            margin: 0 20px;
-            position: relative;
-        }
-
-        .catalog {
-            display: flex;
-            flex-direction: column;
+        .catalog{
+            display: inline-block;
         }
 
         .elements{
@@ -64,8 +27,7 @@
         }
 
         .catalog-button {
-            margin-bottom: 10px;
-            align-self: center;
+            display: flex;
         }
 
         .modal {
@@ -125,16 +87,13 @@
             width: 50px; /* Small preview size */
             height: auto;
             display: block; /* Makes the image a block-level element inside the link */
-            margin: auto;
+            margin: auto; /* This centers the image inside the option-inner */
         }
 
         .option-text {
-            display: block;
+            display: block; /* Makes the text a block-level element */
         }
-        #downloadAvatar{
-            display: block;
-            margin: 0 auto;
-        }
+
     </style>
 </head>
 
@@ -146,120 +105,24 @@
 
 
 <body>
-    <h1 id="title-build">Build your own Cap</h1>
+    <h1>Create Your Avatar</h1>
+    <div class="avatar-container"></div>
     <div class="options">
-        <div class="catalog-buttons accessories">
-            <h2>Choose your accessories:</h2>
+        <div class="skull-options">
+            <h2>Make your skull:</h2>
+            <button class="option" data-image-src="img/skull.png" data-layer="2">Skull</button>
+            <button class="option" data-image-src="img/Teeth.png" data-layer="3">Teeth</button>
+            <button class="option" data-image-src="img/Eyes.png" data-layer="4">Eyes</button>
+        </div>
+        <div class="catalog-buttons">
+            <h2>Choose Your Accessories:</h2>
             <!-- 'None' options to remove accessories -->
     
             <!-- Category buttons -->
             <div class="catalog">
-                <button class="catalog-button" data-target="hat-options">Hat Options</button>
-                <button class="catalog-button" data-target="cover-options">Cover Options</button>
-                <button class="catalog-button" data-target="beard-options">Beard Options</button>
-                <button class="catalog-button" data-target="pendant-options">Pendant Options</button>
                 <button class="catalog-button" data-target="cross-options">Cross Options</button>
-            </div>
-
-            <!-- Elements selection in another window -->
-            <div id="hat-options" class="modal">
-                <div class="modal-content">
-                    <span class="close" data-target="hat-options">&times;</span>
-                    <h2>Hat Options</h2>
-                    <button class="option" data-layer="9" data-image-src="img/Hat/Hat1.png">
-                        <div class="option-inner">
-                            <img src="img/Hat/Hat1.png" class="option-image">
-                            <span class="option-text">Hat 1</span>
-                        </div>
-                    </button>
-                    <button class="option" data-layer="9" data-image-src="img/Hat/Hat2.png">
-                        <div class="option-inner">
-                            <img src="img/Hat/Hat2.png" class="option-image">
-                            <span class="option-text">Hat 2</span>
-                        </div>
-                    </button>
-                    <button class="option" data-layer="9" data-image-src="img/Hat/Hat3.png">
-                        <div class="option-inner">
-                            <img src="img/Hat/Hat3.png" class="option-image">
-                            <span class="option-text">Hat 3</span>
-                        </div>
-                    </button>
-                </div>
-            </div>
-            <div id="cover-options" class="modal">
-                <div class="modal-content">
-                    <span class="close" data-target="cover-options">&times;</span>
-                    <h2>Cover Options</h2>
-                    <button class="none" data-layer="8">No Cover</button>
-                    <button class="option" data-layer="8" data-image-src="img/Cover/Cover1.png">
-                        <div class="option-inner">
-                            <img src="img/Cover/Cover1.png" class="option-image">
-                            <span class="option-text">Cover 1</span>
-                        </div>
-                    </button>
-                    <button class="option" data-layer="8" data-image-src="img/Cover/Cover2.png">
-                        <div class="option-inner">
-                            <img src="img/Cover/Cover2.png" class="option-image">
-                            <span class="option-text">Cover 2</span>
-                        </div>
-                    </button>
-                    <button class="option" data-layer="8" data-image-src="img/Cover/Cover3.png">
-                        <div class="option-inner">
-                            <img src="img/Cover/Cover3.png" class="option-image">
-                            <span class="option-text">Cover 3</span>
-                        </div>
-                    </button>
-                </div>
-            </div>
-            <div id="beard-options" class="modal">
-                <div class="modal-content">
-                    <span class="close" data-target="beard-options">&times;</span>
-                    <h2>Beard Options</h2>
-                    <button class="none" data-layer="7">No Beard</button>
-                    <button class="option" data-layer="7" data-image-src="img/Beard/Beard1.png">
-                        <div class="option-inner">
-                            <img src="img/Beard/Beard1.png" class="option-image">
-                            <span class="option-text">Beard 1</span>
-                        </div>
-                    </button>
-                    <button class="option" data-layer="7" data-image-src="img/Beard/Beard2.png">
-                        <div class="option-inner">
-                            <img src="img/Beard/Beard2.png" class="option-image">
-                            <span class="option-text">Beard 2</span>
-                        </div>
-                    </button>
-                    <button class="option" data-layer="7" data-image-src="img/Beard/Beard3.png">
-                        <div class="option-inner">
-                            <img src="img/Beard/Beard3.png" class="option-image">
-                            <span class="option-text">Beard 3</span>
-                        </div>
-                    </button>
-                </div>
-            </div>
-            <div id="pendant-options" class="modal">
-                <div class="modal-content">
-                    <span class="close" data-target="pendant-options">&times;</span>
-                    <h2>Pendant Options</h2>
-                    <button class="none" data-layer="2">No Pendant</button>
-                    <button class="option" data-layer="2" data-image-src="img/Pendant/Pendant1.png">
-                        <div class="option-inner">
-                            <img src="img/Pendant/Pendant1.png" class="option-image">
-                            <span class="option-text">Pendant 1</span>
-                        </div>
-                    </button>
-                    <button class="option" data-layer="2" data-image-src="img/Pendant/Pendant2.png">
-                        <div class="option-inner">
-                            <img src="img/Pendant/Pendant2.png" class="option-image">
-                            <span class="option-text">Pendant 2</span>
-                        </div>
-                    </button>
-                    <button class="option" data-layer="2" data-image-src="img/Pendant/Pendant3.png">
-                        <div class="option-inner">
-                            <img src="img/Pendant/Pendant3.png" class="option-image">
-                            <span class="option-text">Pendant 3</span>
-                        </div>
-                    </button>
-                </div>
+                <button class="catalog-button" data-target="beard-options">Beard Options</button>
+                <button class="catalog-button" data-target="hat-options">Hat Options</button>
             </div>
             <div id="cross-options" class="modal">
                 <div class="modal-content">
@@ -286,93 +149,52 @@
                     </button>
                 </div>
             </div>
-        </div>
-
-
-        <div class="avatar-container"></div>
-
-
-        <div class="catalog-buttons skull">
-            <h2>Personalize your skull:</h2>
-            <!-- 'None' options to remove accessories -->
-    
-            <!-- Category buttons -->
-            <div class="catalog">
-                <button class="catalog-button" data-target="eyes-options">Eyes Options</button>
-                <button class="catalog-button" data-target="tatoo-options">Tatoo Options</button>
-                <button class="catalog-button" data-target="teeth-options">Teeth Options</button>
-            </div>
-
-            <!-- Elements selection in another window -->
-            <div id="eyes-options" class="modal">
+            <div id="beard-options" class="modal">
                 <div class="modal-content">
-                    <span class="close" data-target="eyes-options">&times;</span>
-                    <h2>Eyes Options</h2>
-                    <button class="option" data-layer="5" data-image-src="img/Eyes/Eyes1.png">
+                    <span class="close" data-target="beard-options">&times;</span>
+                    <h2>Beard Options</h2>
+                    <button class="none" data-layer="5">No Beard</button>
+                    <button class="option" data-layer="5" data-image-src="img/Beard/Beard1.png">
                         <div class="option-inner">
-                            <img src="img/Eyes/Eyes1.png" class="option-image">
-                            <span class="option-text">Eyes 1</span>
+                            <img src="img/Beard/Beard1.png" class="option-image">
+                            <span class="option-text">Beard 1</span>
                         </div>
                     </button>
-                    <button class="option" data-layer="5" data-image-src="img/Eyes/Eyes2.png">
+                    <button class="option" data-layer="5" data-image-src="img/Beard/Beard2.png">
                         <div class="option-inner">
-                            <img src="img/Eyes/Eyes2.png" class="option-image">
-                            <span class="option-text">Eyes 2</span>
+                            <img src="img/Beard/Beard2.png" class="option-image">
+                            <span class="option-text">Beard 2</span>
                         </div>
                     </button>
-                    <button class="option" data-layer="5" data-image-src="img/Eyes/Eyes3.png">
+                    <button class="option" data-layer="5" data-image-src="img/Beard/Beard3.png">
                         <div class="option-inner">
-                            <img src="img/Eyes/Eyes3.png" class="option-image">
-                            <span class="option-text">Eyes 3</span>
+                            <img src="img/Beard/Beard3.png" class="option-image">
+                            <span class="option-text">Beard 3</span>
                         </div>
                     </button>
                 </div>
             </div>
-            <div id="tatoo-options" class="modal">
+            <div id="hat-options" class="modal">
                 <div class="modal-content">
-                    <span class="close" data-target="tatoo-options">&times;</span>
-                    <button class="none" data-layer="6">No Tatoo</button>
-                    <h2>Tatoo Options</h2>
-                    <button class="option" data-layer="6" data-image-src="img/Tatoo/Tatoo1.png">
+                    <span class="close" data-target="hat-options">&times;</span>
+                    <h2>Hat Options</h2>
+                    <button class="none" data-layer="6">No Hat</button>
+                    <button class="option" data-layer="6" data-image-src="img/Hat/Hat1.png">
                         <div class="option-inner">
-                            <img src="img/Tatoo/Tatoo1.png" class="option-image">
-                            <span class="option-text">Tatoo 1</span>
+                            <img src="img/Hat/Hat1.png" class="option-image">
+                            <span class="option-text">Hat 1</span>
                         </div>
                     </button>
-                    <button class="option" data-layer="6" data-image-src="img/Tatoo/Tatoo2.png">
+                    <button class="option" data-layer="6" data-image-src="img/Hat/Hat2.png">
                         <div class="option-inner">
-                            <img src="img/Tatoo/Tatoo2.png" class="option-image">
-                            <span class="option-text">Tatoo 2</span>
+                            <img src="img/Hat/Hat2.png" class="option-image">
+                            <span class="option-text">Hat 2</span>
                         </div>
                     </button>
-                    <button class="option" data-layer="6" data-image-src="img/Tatoo/Tatoo3.png">
+                    <button class="option" data-layer="6" data-image-src="img/Hat/Hat3.png">
                         <div class="option-inner">
-                            <img src="img/Tatoo/Tatoo3.png" class="option-image">
-                            <span class="option-text">Tatoo 3</span>
-                        </div>
-                    </button>
-                </div>
-            </div>
-            <div id="teeth-options" class="modal">
-                <div class="modal-content">
-                    <span class="close" data-target="teeth-options">&times;</span>
-                    <h2>Teeth Options</h2>
-                    <button class="option" data-layer="4" data-image-src="img/Teeth/Teeth1.png">
-                        <div class="option-inner">
-                            <img src="img/Teeth/Teeth1.png" class="option-image">
-                            <span class="option-text">Teeth 1</span>
-                        </div>
-                    </button>
-                    <button class="option" data-layer="4" data-image-src="img/Teeth/Teeth2.png">
-                        <div class="option-inner">
-                            <img src="img/Teeth/Teeth2.png" class="option-image">
-                            <span class="option-text">Teeth 2</span>
-                        </div>
-                    </button>
-                    <button class="option" data-layer="4" data-image-src="img/Teeth/Teeth3.png">
-                        <div class="option-inner">
-                            <img src="img/Teeth/Teeth3.png" class="option-image">
-                            <span class="option-text">Teeth 3</span>
+                            <img src="img/Hat/Hat3.png" class="option-image">
+                            <span class="option-text">Hat 3</span>
                         </div>
                     </button>
                 </div>
@@ -384,7 +206,7 @@
     <canvas id="avatarCanvas" width="500" height="500" style="display: none;"></canvas>
 
     <!-- Download button -->
-    <button id="downloadAvatar" style="margin-top: 50px;">Download your Cap</button>
+    <button id="downloadAvatar">Download Avatar</button>
 
 
 
@@ -414,10 +236,10 @@
             const defaultParts = [
                 { layer: '0', src: 'img/background.png' }, // Background layer
                 { layer: '1', src: 'img/Cross/Cross1.png' }, // Cross layer
-                { layer: '3', src: 'img/skull.png' }, // Skull layer
-                { layer: '4', src: 'img/Teeth/Teeth1.png' }, // Teeth layer
-                { layer: '5', src: 'img/Eyes/Eyes1.png' }, // Eyes layer
-                { layer: '9', src: 'img/Hat/Hat1.png' }  // Hat layer
+                { layer: '2', src: 'img/skull.png' }, // Skull layer
+                { layer: '4', src: 'img/Eyes.png' }, // Eyes layer
+                { layer: '3', src: 'img/Teeth.png' }, // Teeth layer
+                { layer: '6', src: 'img/Hat/Hat1.png' }  // Hat layer
             ];
 
             // Apply each default part
@@ -556,7 +378,7 @@
 
                 // Create a temporary link and trigger the download
                 let tmpLink = document.createElement('a');
-                tmpLink.download = 'Cap.png'; // Set the download name
+                tmpLink.download = 'avatar.png'; // Set the download name
                 tmpLink.href = image;
                 document.body.appendChild(tmpLink); // Add to the DOM
                 tmpLink.click(); // Simulate click

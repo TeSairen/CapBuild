@@ -16,11 +16,6 @@
             height: 500px;
         }
 
-        #title-build{
-            margin: 50px auto;
-            text-align: center;
-        }
-
         /* New styles for layout */
         .main-content {
             display: flex;
@@ -40,8 +35,6 @@
         .skull {
             flex: 1;
             margin: auto;
-            display: flex;
-            flex-direction: column;
             align-items: center;
         }
 
@@ -52,9 +45,8 @@
             position: relative;
         }
 
-        .catalog {
-            display: flex;
-            flex-direction: column;
+        .catalog{
+            display: inline-block;
         }
 
         .elements{
@@ -63,9 +55,11 @@
             margin-left: 200px;
         }
 
-        .catalog-button {
-            margin-bottom: 10px;
-            align-self: center;
+        .catalog-buttons {
+            display: flex;
+            flex-direction: column; /* Stacks the 'accessories' and 'skull' divs vertically */
+            justify-content: start;
+            width: 200px; /* Adjust the width as needed */
         }
 
         .modal {
@@ -146,10 +140,10 @@
 
 
 <body>
-    <h1 id="title-build">Build your own Cap</h1>
+    <h1>Create Your Avatar</h1>
     <div class="options">
         <div class="catalog-buttons accessories">
-            <h2>Choose your accessories:</h2>
+            <h2>Choose Your Accessories:</h2>
             <!-- 'None' options to remove accessories -->
     
             <!-- Category buttons -->
@@ -384,7 +378,7 @@
     <canvas id="avatarCanvas" width="500" height="500" style="display: none;"></canvas>
 
     <!-- Download button -->
-    <button id="downloadAvatar" style="margin-top: 50px;">Download your Cap</button>
+    <button id="downloadAvatar" style="margin-top: 50px;">Download Avatar</button>
 
 
 
