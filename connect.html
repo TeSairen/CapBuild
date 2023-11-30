@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Connect your wallet</title>
+
+    <style>
+        .header-container {
+            position: relative;
+            text-align: center;
+        }
+
+        #title-build {
+            margin: 50px auto;
+            display: inline-block; /* Ensures the title does not take full width */
+        }
+
+        .close {
+            position: absolute; /* Absolutely positions the close link */
+            right: 0; /* Positions it to the far right */
+            margin-right: 20px; /* Adds some space from the right edge */
+            top: 50%; /* Aligns vertically at the center */
+            transform: translateY(-50%); /* Adjusts for exact vertical centering */
+            text-decoration: none; /* Optional: Removes underline */
+        }
+
+        #walletInfo {
+            position: fixed; /* Fixed position relative to the viewport */
+            right: 20px; /* 10px from the right */
+            bottom: 20px; /* 10px from the bottom */
+            background-color: #ffffff; /* White background */
+            color: #333333; /* Dark text color */
+            padding: 20px; /* Padding inside the rectangle */
+            border: 1px solid #dddddd; /* Light grey border */
+            border-radius: 5px; /* Rounded corners */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Optional: Adds a shadow for depth */
+            z-index: 10; /* Ensure it's above other elements */
+            font-family: Arial, sans-serif; /* Optional: Sets the font */
+            font-size: 0.9em; /* Sets the size of the text */
+            display: none; /* Hide the wallet info box initially */
+        }
+
+        #button {
+            display: block;
+            height: 35px;
+            padding: 0 15px;
+            margin: 50px auto 0;
+            background-color: #5CA2A9;
+            color: white;
+            text-align: center;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="header-container">
+        <h1 id="title-build">Connect your wallet before collecting your Cap</h1>
+        <a href="index.html" class="close">Close X</a>
+    </div>
+
+    <button id="connectButton">Connect Metamask</button>
+    <div id="walletDisplay"></div>
+
+    <div id="walletInfo"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            document.getElementById('connectButton').addEventListener('click', event => {
+                ethereum.request({ method: 'eth_requestAccounts' })
+                .then(accounts => {
+                    if (accounts.length === 0) {
+                        console.log('No accounts found');
+                    } else {
+                        const account = accounts[0];
+                        const displayAccount = account.substring(0, 7) + '...' + account.substring(account.length - 5);
+                        console.log('Connected account:', account);
+                        
+                        // Get the walletInfo div
+                        const walletInfoDiv = document.getElementById('walletInfo');
+                        
+                        // Set the text of the walletInfo div
+                        walletInfoDiv.innerText = displayAccount;
+                        
+                        // Make the walletInfo div visible
+                        walletInfoDiv.style.display = 'block';
+                    }
+                })
+                .catch(error => {
+                    console.error(error);
+                });
+            });
+        });
+
+
+
+
+
+
+    </script>
+</body>
+</html>

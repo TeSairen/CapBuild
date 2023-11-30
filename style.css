@@ -1,0 +1,183 @@
+/* Issues with avatar container and avatar layer: is the avatar container usefull? */
+.avatar-container {
+    width: 500px;
+    height: 500px;
+    margin: 0 auto;
+    position: relative;
+    background-color: #000;
+}
+
+.avatar-layer {
+    position: absolute;
+    margin: 0 auto;
+    width: 500px;
+    height: 500px;
+}
+
+.catalog-button{
+    height: 50px;
+    width: 150px;
+    padding: 0 15px;
+    margin: 20px auto 0;
+    background-color: #e6e6e6;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    border: 1px solid #000000;
+}
+
+#title-build{
+    margin: 50px auto;
+    text-align: center;
+}
+
+.options {
+    display: flex;
+}
+
+.accessories,
+.skull {
+    flex: 1;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.catalog {
+    display: flex;
+    flex-direction: column;
+}
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    left: 0;
+    top: 0;
+    /* align-items: center; */ /*can be useful when changing the size of the window*/
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background-color: rgba(0, 0, 0, 0.5); /* Black w/ opacity */
+    z-index: 20; /* Sit on top */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 0 20px 20px ;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    cursor: pointer;
+}
+
+.option-container {
+    cursor: pointer;
+}
+
+.option {
+    border: 1px solid #000000;
+    background: #fff;
+    cursor: pointer;
+    text-align: center;
+}
+
+.option-image {
+    width: 70px;
+    height: auto;
+    display: block;
+}
+
+.tempo-center{
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#downloadButton{
+    display: block;
+    margin: 50px auto 0;
+    cursor: pointer;
+}
+
+#collectButton {
+    display: inline-block;
+    height: 35px;
+    line-height: 35px;
+    padding: 0 15px;
+    margin: 50px 0 0;
+    background-color: #5CA2A9;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.modal-connect {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    left: 0;
+    top: 0;
+    /* align-items: center; */ /*can be useful when changing the size of the window*/
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.modal-connect-content{
+    background-color: #fefefe;
+    padding: 0; /* A voir */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Connect modal */
+
+#walletInfo {
+    position: fixed; /* Fixed position relative to the viewport */
+    right: 20px; /* 10px from the right */
+    bottom: 20px; /* 10px from the bottom */
+    background-color: #ffffff; /* White background */
+    color: #333333; /* Dark text color */
+    padding: 20px; /* Padding inside the rectangle */
+    border: 1px solid #dddddd; /* Light grey border */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Optional: Adds a shadow for depth */
+    z-index: 10; /* Ensure it's above other elements */
+    font-family: Arial, sans-serif; /* Optional: Sets the font */
+    font-size: 0.9em; /* Sets the size of the text */
+    display: none; /* Hide the wallet info box initially */
+}
+
+.button {
+    height: 35px;
+    width: auto;
+    padding: 0 15px;
+    margin: 50px auto 0;
+    background-color: #5CA2A9;
+    color: white;
+    text-align: center;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+}
+
+
